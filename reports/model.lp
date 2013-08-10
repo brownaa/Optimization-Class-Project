@@ -1,0 +1,167 @@
+/* Objective function */
+min: +24.95 X_1 +1.115 X_2 +12.28742667 X_4 +5 X_5 +0.05078125 X_6 +9.99 X_7 +0.025100402 X_8 +0.532571429 X_9
+ +2.119 X_10 +1.25 X_11 +1.464 X_12 +0.567 X_13 +0.033125 X_14 +2.49 X_15 +4.225 X_16 +1.5 X_17 +5.48 X_18
+ +0.4976 X_19 +3 X_20 +1.19 X_21 +1.47 X_22 +1.48 X_23 +0.1872 X_24 +2.975 X_25 +1.48 X_26 +0.3352 X_27
+ +0.13 X_28 +0.98 X_29 +0.98 X_30 +4.64 X_31 +0.3816 X_32 +0.348 X_33 +0.1152 X_34 +2.68 X_35 +0.06735 X_36
+ +0.0288 X_37 +0.81 X_38 +0.0619 X_39 +4.9944 X_40 +1.58 X_41 +0.0434588 X_42 +2.24 X_43 +0.1113 X_44
+ +1.02 X_45 +0.97 X_46 +0.1641 X_47 +0.0278 X_48 +0.07 X_49 +1.63 X_50 +0.74 X_51 +3.333333333 X_52 +0.2175 X_53
+ +1.3 X_54 +0.71 X_55 +1.335 X_56 +1.24 X_57 +0.25 X_58 +0.6448 X_59 +4.225 X_60 +4.68 X_61 +0.156 X_62
+ +1.72 X_63 +23.139375 XG_1 +25.5490625 XG_7 +4.03875 XG_9 +3.636363636 XG_10 +4.195 XG_12 +0.96 XG_13
+ +4.47 XG_15 +0.5726 XG_19 +6.995 XG_20 +1.592 XG_21 +1.9904 XG_23 +0.3112 XG_24 +1.99 XG_26 +0.8728 XG_27
+ +0.53 XG_28 +0.7472 XG_32 +0.6648 XG_33 +0.1612 XG_36 +5.3072 XG_41 +2.384 XG_43 +0.2067 XG_44 +2.47 XG_45
+ +2.98 XG_46 +3.98 XG_50 +1.245 XG_51 +2.235 XG_56 +1.245 XG_58 +0.7504 XG_59 +0.158 XG_62;
+
+/* Constraints */
+Ingredient: pork tenderloin: -X_1 -XG_1 +0.333333333334 D_1 = 0;
+Ingredient: dry onion soup mix: -X_2 +0.166666666667 D_1 +0.0833333333334 D_3 = 0;
+Ingredient: water: -X_3 +0.166666666667 D_1 +0.104166666667 D_3 +0.25 D_11 = 0;
+Ingredient: red wine: -X_4 +0.125 D_1 = 0;
+Ingredient: garlic: -X_5 +0.03125 D_1 +0.0625 D_4 +0.015625 D_5 +0.025 D_9 +0.00520833333334 D_13 +0.03125 D_18 +0.03125 D_20 = 0;
+Ingredient: soy sauce: -X_6 +0.5 D_1 +0.375 D_5 +D_6 +0.25 D_7 = 0;
+Ingredient: skinless chicken breast: -X_7 -XG_7 +0.5 D_2 = 0;
+Ingredient: salt: -X_8 +0.25 D_2 +0.5 D_4 +0.0625 D_7 +0.125 D_8 +0.03125 D_10 +0.166666666667 D_12 +0.166666666667 D_13
+ +0.125 D_15 +0.125 D_16 +0.125 D_18 = 0;
+Ingredient: yellow mustard: -X_9 -XG_9 +0.125 D_2 = 0;
+Ingredient: honey: -X_10 -XG_10 +0.125 D_2 +0.046875 D_5 = 0;
+Ingredient: corn syrup: -X_11 +0.0625 D_2 = 0;
+Ingredient: mayonnaise: -X_12 -XG_12 +0.0625 D_2 = 0;
+Ingredient: dried onion flakes: -X_13 -XG_13 +0.25 D_2 = 0;
+Ingredient: vegetable oil: -X_14 +0.25 D_2 +0.25 D_5 +0.25 D_20 = 0;
+Ingredient: mushrooms: -X_15 -XG_15 +0.25 D_2 +0.5 D_6 +D_16 = 0;
+Ingredient: colby-jack cheese: -X_16 +0.5 D_2 = 0;
+Ingredient: cond. cream of mushroom soup: -X_17 +0.166666666667 D_3 = 0;
+Ingredient: pot roast: -X_18 +0.458333333334 D_3 = 0;
+Ingredient: olive oil: -X_19 -XG_19 +3 D_4 +0.16666666675 D_5 +D_7 +0.6 D_9 +0.5 D_12 +0.111111111167 D_13 +0.5 D_18 = 0;
+Ingredient: salmon filet: -X_20 -XG_20 +D_4 +D_5 = 0;
+Ingredient: potatoes: -X_21 -XG_21 +D_8 = 0;
+Ingredient: onion: -X_22 +0.25 D_6 +0.25 D_8 +0.0625 D_18 +0.25 D_20 = 0;
+Ingredient: butter: -X_23 -XG_23 +0.046875 D_8 +0.0125 D_9 +0.03125 D_10 +0.0416666666667 D_11 +0.09375 D_15 +0.125 D_16 = 0;
+Ingredient: milk: -X_24 -XG_24 +0.5 D_8 +0.25 D_16 = 0;
+Ingredient: cheddar cheese: -X_25 +0.375 D_8 = 0;
+Ingredient: cream cheese: -X_26 -XG_26 +0.09375 D_14 = 0;
+Ingredient: sugar: -X_27 -XG_27 +0.15625 D_10 +0.0104166666667 D_11 +0.0625 D_14 +0.15625 D_15 +0.3125 D_16 +0.3125 D_17 = 0;
+Ingredient: egg: -X_28 -XG_28 +0.25 D_10 +0.25 D_14 +0.375 D_15 = 0;
+Ingredient: pumpkin puree: -X_29 +0.0625 D_14 = 0;
+Ingredient: green beans(can): -X_30 +0.4 D_9 = 0;
+Ingredient: parmesan cheese: -X_31 +0.05 D_9 = 0;
+Ingredient: pineapple juice: -X_32 -XG_32 +0.09375 D_15 = 0;
+Ingredient: flour: -X_33 -XG_33 +0.0234375 D_10 +0.1875 D_15 +0.3125 D_16 +0.125 D_17 = 0;
+Ingredient: baking powder: -X_34 +0.25 D_15 +1.5 D_16 = 0;
+Ingredient: pineapple: -X_35 +0.125 D_15 = 0;
+Ingredient: balsamic vinegar: -X_36 -XG_36 +0.75 D_5 +0.25 D_7 = 0;
+Ingredient: ginger root: -X_37 +0.25 D_5 = 0;
+Ingredient: sweet potatoe: -X_38 +0.625 D_10 = 0;
+Ingredient: heavy cream: -X_39 +0.25 D_10 = 0;
+Ingredient: pecans: -X_40 +0.0625 D_10 = 0;
+Ingredient: green beans(whole): -X_41 -XG_41 +0.25 D_11 = 0;
+Ingredient: garlic salt: -X_42 +0.0833333333334 D_11 = 0;
+Ingredient: cherry tomato: -X_43 -XG_43 +0.333333333334 D_11 +D_18 +0.5 D_20 = 0;
+Ingredient: tofu: -X_44 -XG_44 +4 D_6 = 0;
+Ingredient: zucchini: -X_45 -XG_45 +0.5 D_6 +0.375 D_7 = 0;
+Ingredient: red bell pepper: -X_46 -XG_46 +0.5 D_6 +0.25 D_7 +0.125 D_20 = 0;
+Ingredient: sriracha: -X_47 +0.0625 D_6 = 0;
+Ingredient: sessame oil: -X_48 +D_6 = 0;
+Ingredient: jalapeno pepper: -X_49 +0.5 D_6 = 0;
+Ingredient: eggplant: -X_50 -XG_50 +0.25 D_7 = 0;
+Ingredient: peach(sliced): -X_51 -XG_51 +D_16 +0.75 D_17 = 0;
+Ingredient: blackberry: -X_52 +0.25 D_16 = 0;
+Ingredient: brussel sprouts: -X_53 +4 D_12 = 0;
+Ingredient: broccoli(head): -X_54 +0.333333333334 D_13 = 0;
+Ingredient: 9in pie crust: -X_55 +D_17 = 0;
+Ingredient: strawberry: -X_56 -XG_56 +0.5 D_17 = 0;
+Ingredient: blueberry: -X_57 +0.5 D_17 = 0;
+Ingredient: parsley: -X_58 -XG_58 +0.0625 D_18 = 0;
+Ingredient: penne pasta: -X_59 -XG_59 +D_18 = 0;
+Ingredient: mozzarella cheese: -X_60 +0.25 D_18 = 0;
+Ingredient: lean ground beef: -X_61 +0.25 D_20 = 0;
+Ingredient: carrot: -X_62 -XG_62 +0.5 D_20 = 0;
+Ingredient: couscous: -X_63 +0.5 D_19 = 0;
+Dish:       Pork Tenderloin: -D_1 +M_1 = 0;
+Dish:       Aussie Chicken: -D_2 = 0;
+Dish:       Awesome Slow Cooker Pot Roast: -D_3 = 0;
+Dish:       Baked Salmon II: -D_4 = 0;
+Dish:       Ginger Glazed Mahi Mahi: -D_5 +0.9 M_2 = 0;
+Dish:       Grilled Tofu Skewers with Sriracha Sauce: -D_6 +M_3 = 0;
+Dish:       Grilled Vegetables with Balsamic Vinegar: -D_7 +M_4 = 0;
+Dish:       Creamy Au Gratin Potatoes: -D_8 +0.6 M_4 = 0;
+Dish:       Garlic Green Beans: -D_9 +M_2 = 0;
+Dish:       Gourmet Sweet Potato Classic: -D_10 +M_1 = 0;
+Dish:       Green Beans with Cherry Tomatoes: -D_11 +M_5 = 0;
+Dish:       Roasted Brussels Sprouts: -D_12 +M_3 = 0;
+Dish:       Roasted Garlic Lemon Broccoli: -D_13 +M_1 +1.3 M_2 +M_4 +M_6 = 0;
+Dish:       Double Layer Pumpkin Cheesecake: -D_14 +M_2 +M_4 +M_6 = 0;
+Dish:       Fresh Pineapple Upside Down Cake: -D_15 +M_1 +M_3 +M_5 = 0;
+Dish:       Peach and Blackberry Cobbler: -D_16 = 0;
+Dish:       Summer Fruit Galettes: -D_17 = 0;
+Dish:       Pasta with Tomato and Bocconcini: -D_18 +M_6 = 0;
+Dish:       Couscous: -D_19 +M_5 = 0;
+Dish:        
+Chunky Spiced Ground Beef Skillet Dinner: -D_20 +M_5 = 0;
+M_1 CAL Lower Limit: : +1157.48055556 M_1 >= 0;
+M_1 Fiber (g) Lower Limit: : +11.2364583333 M_1 >= 0;
+M_1 Protien(g) Lower Limit: : +60.4533854166 M_1 >= 0;
+M_1 VA Lower Limit: : +3.7318125 M_1 >= 0;
+M_1 VC Lower Limit: : +3.72446354167 M_1 >= 0;
+M_1 Ca Lower Limit: : +0.309309895833 M_1 >= 0;
+M_1 Fe Lower Limit: : +0.383765625 M_1 >= 0;
+M_1 CAL Upper Limit: : +1157.48055556 M_1 <= 1158;
+M_1 Fat (g) Upper Limit: : +47.4723958341 M_1 <= 9999999;
+M_1 Na (mg) Upper Limit: : +1737.71744792 M_1 <= 9999999;
+M_1 carb (g) Upper Limit: : +138.369270833 M_1 <= 9999999;
+M_2 CAL Lower Limit: : +1103.67899307 M_2 >= 0;
+M_2 Fiber (g) Lower Limit: : +9.93953125 M_2 >= 0;
+M_2 Protien(g) Lower Limit: : +69.8767708333 M_2 >= 0;
+M_2 VA Lower Limit: : +0.976302083333 M_2 >= 0;
+M_2 VC Lower Limit: : +4.01011875 M_2 >= 0;
+M_2 Ca Lower Limit: : +0.300327083334 M_2 >= 0;
+M_2 Fe Lower Limit: : +0.319851562501 M_2 >= 0;
+M_2 CAL Upper Limit: : +1103.67899307 M_2 <= 1158;
+M_2 Fat (g) Upper Limit: : +46.323750002 M_2 <= 9999999;
+M_2 Na (mg) Upper Limit: : +1535.11833333 M_2 <= 9999999;
+M_2 carb (g) Upper Limit: : +50.66171875 M_2 <= 9999999;
+M_3 CAL Lower Limit: : +847.090625 M_3 >= 0;
+M_3 Fiber (g) Lower Limit: : +10.634375 M_3 >= 0;
+M_3 Protien(g) Lower Limit: : +22.91875 M_3 >= 0;
+M_3 VA Lower Limit: : +0.91278125 M_3 >= 0;
+M_3 VC Lower Limit: : +4.2635625 M_3 >= 0;
+M_3 Ca Lower Limit: : +0.412885416666 M_3 >= 0;
+M_3 Fe Lower Limit: : +0.382041666666 M_3 >= 0;
+M_3 CAL Upper Limit: : +847.090625 M_3 <= 1158;
+M_3 Fat (g) Upper Limit: : +45.25 M_3 <= 9999999;
+M_3 Na (mg) Upper Limit: : +1619.61145833 M_3 <= 9999999;
+M_3 carb (g) Upper Limit: : +95.8593750001 M_3 <= 9999999;
+M_4 CAL Lower Limit: : +703.366388896 M_4 >= 0;
+M_4 Fiber (g) Lower Limit: : +13.2221875 M_4 >= 0;
+M_4 Protien(g) Lower Limit: : +24.1952083333 M_4 >= 0;
+M_4 VA Lower Limit: : +1.22666145833 M_4 >= 0;
+M_4 VC Lower Limit: : +4.505015625 M_4 >= 0;
+M_4 Ca Lower Limit: : +0.434002083333 M_4 >= 0;
+M_4 Fe Lower Limit: : +0.32633125 M_4 >= 0;
+M_4 CAL Upper Limit: : +703.366388896 M_4 <= 1158;
+M_4 Fat (g) Upper Limit: : +40.2846875007 M_4 <= 9999999;
+M_4 Na (mg) Upper Limit: : +1261.63614583 M_4 <= 9999999;
+M_4 carb (g) Upper Limit: : +69.6493750001 M_4 <= 9999999;
+M_5 CAL Lower Limit: : +901.375000001 M_5 >= 0;
+M_5 Fiber (g) Lower Limit: : +10.9666666667 M_5 >= 0;
+M_5 Protien(g) Lower Limit: : +18.4541666667 M_5 >= 0;
+M_5 VA Lower Limit: : +102.842572917 M_5 >= 0;
+M_5 VC Lower Limit: : +4.44848958334 M_5 >= 0;
+M_5 Ca Lower Limit: : +1.90415625 M_5 >= 0;
+M_5 Fe Lower Limit: : +5.665875 M_5 >= 0;
+M_5 CAL Upper Limit: : +901.375000001 M_5 <= 1158;
+M_5 Fat (g) Upper Limit: : +32.3302083333 M_5 <= 9999999;
+M_5 Na (mg) Upper Limit: : +826.516666667 M_5 <= 9999999;
+M_5 carb (g) Upper Limit: : +110.353125 M_5 <= 9999999;
+M_6 CAL Lower Limit: : +630.504513895 M_6 >= 0;
+M_6 Fiber (g) Lower Limit: : +13.5428125 M_6 >= 0;
+M_6 Protien(g) Lower Limit: : +32.9427083333 M_6 >= 0;
+M_6 VA Lower Limit: : +5.07773958334 M_6 >= 0;
+M_6 VC Lower Limit: : +3.780296875 M_6 >= 0;
+M_6 Ca Lower Limit: : +14.8839270833 M_6 >= 0;
+M_6 Fe Lower Limit: : +23.28978125 M_6 >= 0;
+M_6 CAL Upper Limit: : +630.504513895 M_6 <= 1158;
+M_6 Fat (g) Upper Limit: : +26.0671875007 M_6 <= 9999999;
+M_6 Na (mg) Upper Limit: : +1006.83177083 M_6 <= 9999999;
+M_6 carb (g) Upper Limit: : +128.646875 M_6 <= 9999999;
+Carnivores: +M_1 +M_2 +M_5 = 6;
+Vegetarians: +M_3 +M_4 +M_6 = 4;

@@ -1,0 +1,8 @@
+data_loading: off
+cache_loading: on
+munging: on
+logging: off
+load_libraries: on
+libraries: lpSolveAPI, ggplot2, reshape2, gridExtra, gdata, RCurl
+as_factors: on
+data_tables: off
