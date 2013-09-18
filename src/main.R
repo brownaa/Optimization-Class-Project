@@ -168,7 +168,7 @@ costObjective <- c(ingredients[,1],
 									 rep(0,n_d * 3))
 greenObjective <- c(ingredients[,3], 
 										rep(0,n_d * 3 +length(XG)))
-lp <- make.lp(0,length(cols), verbose = "neutral")
+lp <- make.lp(0,length(cols), verbose = "full")
 for ( i in 1:nrow(CONSTRAINTS)){
 	add.constraint(lp,
 								 as.numeric(CONSTRAINTS[i,]),
@@ -179,12 +179,13 @@ colnames(lp) <- cols
 rownames(lp) <- rownames(CONSTRAINTS)
 set.bounds(lp, lower = rep(0,length(cols)), 
 					 columns = c(1:length(cols)))
-
-inc <- c(0, 0.05, 0.85,0.9, 0.95, 1)			# number of increments to increase 'w' by until w=1
-for(w in inc){
+w <- 0
+inc <- 10			# number of increments to increase 'w' by until w=1
+sequence <- seq(0,1,1/inc)
+for(w in sequence){
 	objFN <- w * costObjective +(1 - w) * greenObjective
 	set.objfn(lp, objFN)
-	write.lp(lp,paste("./reports/model w=", w,".lp", sep = ""))
+# 	write.lp(lp,paste("./reports/model w=", w,".lp", sep = ""))
 	solve(lp)
 	if(w==0){
 		obj <- get.objective(lp)
@@ -197,7 +198,7 @@ for(w in inc){
 		const <- cbind(const, get.constraints(lp))
 	}
 }
-w <- inc
+w <- sequence
 colnames(DV) <- cols
 rownames(DV) <- w
 rownames(const) <- rownames(lp)
@@ -205,7 +206,6 @@ colnames(const) <- w
 names(obj) <- w
 
 # Summary Results ---------------------------------------------------------
-# Remove duplicates
 DV_i 				<- c(1:(n_i+length(XG)))			#ingredient DVs
 DV_ig				<- c((n_i+1):length(DV_i))		#green ingredient DVs
 DV_d 				<- c((n_i+length(XG)+1):(n_i+length(XG)+20))
@@ -224,9 +224,11 @@ u_DV <- t(u_DV)				# unique solutions
 # 2 - Report Total Cost
 Tot_Cost   <- DV   * costObjective			# all weights
 u_Tot_Cost <- u_DV * costObjective			# unique solutions
+u_NonGreenCal <- u_DV * greenObjective
 
 results_X 				<- u_DV[DV_i,]
 results_TotCost 	<- apply(u_Tot_Cost, 2, sum)
+results_NonGreenCal <- apply(u_NonGreenCal, 2, sum) / (n_nonveg + n_veg)
 results_Dishes 		<- u_DV[DV_d,]
 results_Nutrition <- u_const[(nrow(u_const)-(22-1)):nrow(u_const),][-c(8,19),]
 results_GreenCal	<- apply( u_DV[DV_ig,] * gCal, 2, sum) / (n_nonveg + n_veg)
@@ -236,3 +238,30 @@ write.csv(results_TotCost,   "./reports/results_TotCost.csv")
 write.csv(results_Dishes,    "./reports/results_Dishes.csv")
 write.csv(results_Nutrition, "./reports/results_Nutrition.csv")
 write.csv(results_GreenCal,  "./reports/results_GreenCal.csv")
+
+jpeg("./graphs/Meal Cost.jpg")
+plot(w,results_TotCost,  type = "l",
+		 xlab=expression(W[1]), ylab="Total Cost",
+		 main="Meal Cost")
+dev.off()
+jpeg("./graphs/Non-green Cal.jpg")
+plot(w,results_NonGreenCal, type = "l",
+		 xlab=expression(W[1]), ylab="Non-green Calories",
+		 main="Non-Green Calories (per meal)")
+dev.off()
+jpeg("./graphs/Green Calories.jpg")
+plot(w,results_GreenCal, type = "l",
+		 xlab=expression(W[1]), ylab="Green Calories",
+		 main="Green Calories (per meal)")
+dev.off()
+###### plotting tradeoffs between cost and calories
+jpeg("./graphs/Non-Green CAL vs. Meal Cost.jpg")
+plot(results_TotCost,results_NonGreenCal, type = "l",
+		 xlab="Total Cost", ylab="Non-green Calories",
+		 main="Non-green Calories vs. Total Cost")
+dev.off()
+jpeg("./graphs/Green CAL vs. Meal Cost.jpg")
+plot(results_TotCost,results_GreenCal, type = "l",
+		 xlab="Total Cost", ylab="Green Calories",
+		 main="Green Calories vs. Total Cost")
+dev.off()
